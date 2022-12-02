@@ -1,26 +1,34 @@
 * {
-    font-family: 'Anek Devanagari';
+    font-family: 'Roboto', sans-serif;
+   
 }
+
 #content {
-    
-    text-align: justify;
     width: 30%;
-    padding: 1%;
 }
 #formBox {
+    font-weight: lighter;
     border: 1px solid lightGrey;
   border-radius: 8px;
-  padding: 5px;
+  padding: 5%;
 }
-#callList label{
-    color: "red";
-}
-input {
-    border: 2px solid lightGrey;
-    margin: 5px 0 10px;
+
+
+input[type=tel]{
+    width: 90%;
+    border: 1px solid lightGrey;
+    margin: 5px 0;
     font-size: 1rem;
-    color: #656880;
+    color: #lightGrey;
+    padding: 3%;
+    border-radius: 4px;
   }
+
+input:focus{
+    outline: none;
+}
 #invalid {
-    font-size: .5em;
+    font-size: .8em;
+    font-weight: lighter;
+    color: red;
 }

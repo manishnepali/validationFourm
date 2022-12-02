@@ -7,7 +7,7 @@ window.onload=()=>{
     <p>Welke communicatie wenst u niet langer te ontvangen?</p>
         <form action="" id="formBox">
         <input type="checkbox" id="callList" name="ckeckbox" value="checked">
-        <label for="callList"> ik wens niet meer opgebeld te worden</label><br>
+        <label for="callList" id="checkLabel"> ik wens niet meer opgebeld te worden</label><br>
         <div id="infoText">
        
         </div>
@@ -27,18 +27,19 @@ window.onload=()=>{
     function isBtnChecked(){
         if(this.checked){
             console.log('btn checked');
-            infoText.style.visibility = "visible"        
-            formBox.style.borderColor = "gold"
+            infoText.style.visibility = "visible";        
+            formBox.style.borderColor = "gold";
+            checkLabel.style.fontWeight = "normal";
             infoText.innerHTML += `  
-            <p id="">
+            <br><label id="">
             Bellen we u te vaak op? Geen probleem, 
             we geven onze callcenters door dat u niet langer wenst opgebeld te worden.
-            U kunt u ook nog steeds registreren op de <a herf="#">bel-me-niet-meer-lijst</a>.
-            </p>
-            <input type="tel" id="phone" name="phone" placeholder="Telefoon" required><br>
+            U kunt u ook nog steeds registreren op de <a href="">bel-me-niet-meer-lijst</a>.
+            </label><br><br>
+            <input type="tel" id="phone" name="phone" placeholder="Telefoon" required>
             <label id="invalid"> Gelieve een geldig nummer in te vullen</label><br>
             <input type="submit" id="submitBtn" value="Submit">
-          `
+          `;
           const submitBtn = document.getElementById("submitBtn");
           submitBtn.disabled = true;
       
@@ -70,6 +71,7 @@ window.onload=()=>{
             infoText.style.visibility = "hidden";
             formBox.style.borderColor = "lightGrey"
             infoText.innerHTML = "";
+            checkLabel.style.fontWeight = "lighter";
         }
 
     }
