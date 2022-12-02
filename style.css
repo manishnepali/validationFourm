@@ -1,0 +1,26 @@
+* {
+    font-family: 'Anek Devanagari';
+}
+#content {
+    
+    text-align: justify;
+    width: 30%;
+    padding: 1%;
+}
+#formBox {
+    border: 1px solid lightGrey;
+  border-radius: 8px;
+  padding: 5px;
+}
+#callList label{
+    color: "red";
+}
+input {
+    border: 2px solid lightGrey;
+    margin: 5px 0 10px;
+    font-size: 1rem;
+    color: #656880;
+  }
+#invalid {
+    font-size: .5em;
+}
