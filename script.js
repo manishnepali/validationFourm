@@ -14,6 +14,7 @@ const htmlString =`
      U kunt u ook nog steeds registreren op de <a herf="#">bel-me-niet-meer-lijst</a>.
     </p>
     <input type="tel" id="phone" name="phone" placeholder="Telefoon" required>
+    <input type="submit" id="submitBtn" value="Submit">
     </div>
     </form>
     `
@@ -22,7 +23,8 @@ const infoText = document.getElementById("infoText");
 infoText.style.visibility = "hidden";
 const checkbox = document.getElementById("callList");
 checkbox.addEventListener("change", isBtnChecked);
-
+const submitBtn = document.getElementById("submitBtn");
+submitBtn.style.visibility = "hidden";
 function isBtnChecked(){
     if(this.checked){
         console.log('btn checked');
@@ -40,9 +42,10 @@ phone.addEventListener("keyup", numberValidation)
 let regex = /^\+32\d{8}$/;
 function numberValidation(){
     if(phone.value.match(regex)){
-        console.log("ok")
+        console.log("ok");
+        submitBtn.style.visibility = "visible";
     }else{
-        console.log(phone.value)
+        console.log(phone.value);
     }
    
  
