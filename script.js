@@ -34,5 +34,18 @@ function isBtnChecked(){
     }
 
 }
+const phone = document.getElementById("phone");
+phone.addEventListener("keyup", numberValidation)
+//regular expression
+let regex = /^\+32\d{8}$/;
+function numberValidation(){
+    if(phone.value.match(regex)){
+        console.log("ok")
+    }else{
+        console.log(phone.value)
+    }
+   
+ 
+}
 
 }
