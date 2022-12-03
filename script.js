@@ -1,7 +1,7 @@
 window.onload=()=>{
     console.log("loaded")
 
-    const body = document.getElementById("content")
+    const body = document.getElementById("content");
 
     const htmlString =`
     <p>Welke communicatie wenst u niet langer te ontvangen?</p>
@@ -13,7 +13,7 @@ window.onload=()=>{
         </div>
         
         </form>
-        `
+        `;
     body.innerHTML += htmlString;
 
     const infoText = document.getElementById("infoText");
@@ -27,7 +27,8 @@ window.onload=()=>{
     function isBtnChecked(){
         if(this.checked){
             console.log('btn checked');
-            infoText.style.visibility = "visible";        
+            infoText.style.visibility = "visible";    
+            formBox.style.transitionDuration = ".6s";    
             formBox.style.borderColor = "gold";
             checkLabel.style.fontWeight = "normal";
             infoText.innerHTML += `  
@@ -37,7 +38,7 @@ window.onload=()=>{
             U kunt u ook nog steeds registreren op de <a href="">bel-me-niet-meer-lijst</a>.
             </label><br><br>
             <input type="tel" id="phone" name="phone" placeholder="Telefoon" required>
-            <label id="invalid"> Gelieve een geldig nummer in te vullen</label><br>
+            <label id="invalid"> Gelieve een geldig nummer in te vullen</label><br><br>
             <input type="submit" id="submitBtn" value="Submit">
           `;
           const submitBtn = document.getElementById("submitBtn");
@@ -48,42 +49,51 @@ window.onload=()=>{
 
           const phone = document.getElementById("phone");
           phone.addEventListener("keyup", numberValidation)
-      
+          submitBtn.addEventListener("click", submitNumber);
+          function submitNumber(e){
+          e.preventDefault();
+          const infoText = document.getElementById("infoText");
+          infoText.innerHTML = "";
+          infoText.innerHTML += `<p>U wordt niet meer opgebeld door onze callcenters. Dank u <br>
+          uw telefoon nummer: ${phone.value}</p><br>`;
+          }
           //regular expression
           let regex = /^\+32\d{8}$/;
           function numberValidation(){
               if(phone.value.match(regex)){
                   console.log("ok");
-                  phone.style.borderColor = "green";
+                  phone.style.borderColor = "#27AE60";
                   invalid.style.visibility = "hidden"
                   submitBtn.disabled = false;
+                  submitBtn.style.transitionDuration = ".6s";
+                  submitBtn.style.backgroundColor = "#27AE60"
+                  submitBtn.style.cursor = "pointer"
+                  
               }else{
                   phone.style.borderColor = "red";
                   console.log(phone.value);
                   invalid.style.visibility = "visible"
                   submitBtn.disabled = true;
+                  submitBtn.style.backgroundColor = "lightGrey"
+                  submitBtn.style.cursor = "default"
               }
           
           }
+          
         }
         else{
             console.log('btn not checked');
             infoText.style.visibility = "hidden";
             formBox.style.borderColor = "lightGrey"
+            formBox.style.transitionDuration = ".6s"; 
             infoText.innerHTML = "";
             checkLabel.style.fontWeight = "lighter";
+
         }
 
     }
+    
 
-    // submitBtn.addEventListener("click", submitNumber);
-    // function submitNumber(e){
-    // e.preventDefault();
-
-    // const submitString = `<p>U wordt niet meer opgebeld door onze callcenters. Dank u <br>
-    // uw telefoon nummer: ${phone.value}</p><br>
-    // <button type="button" href="">terug</button>`
-    // body.innerHTML += submitString;
-    // }
+   
 
 }

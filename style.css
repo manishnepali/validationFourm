@@ -2,11 +2,15 @@
     font-family: 'Roboto', sans-serif;
    
 }
-
+body {
+    display: flex; 
+    justify-content: center;
+}
 #content {
     width: 30%;
 }
 #formBox {
+    
     font-weight: lighter;
     border: 1px solid lightGrey;
   border-radius: 8px;
@@ -31,4 +35,19 @@ input:focus{
     font-size: .8em;
     font-weight: lighter;
     color: red;
+}
+
+#submitBtn {
+ 
+  border-radius: 8px;
+  border-width: 0;
+  color: #grey;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  padding: 10px 12px;
+  width: 40%;
+  
+ 
+
 }
