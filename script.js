@@ -66,7 +66,7 @@ window.onload=()=>{
           }
           //regular expression to validate belgain phone number
           // always start with +32 "/^\+32\"" fallowed by 8 random digits
-          let regex = /^\+32\d{8}$/;
+          let regex = /^\+32\d{8,}$/;
           function numberValidation(){
               if(phone.value.match(regex)){
                   console.log("ok");
